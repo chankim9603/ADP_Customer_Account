@@ -60,7 +60,7 @@ public class TokenController {
     private Customer getCustomerWithNameFromCustomerAPI(String username){
         System.out.println("getCustomerWithNameFromCustomerAPI");
         try {
-            URL url = new URL("http://localhost:8080/api/customers/customers/name/" + username);
+            URL url = new URL("http://localhost:8080/api/customers/name/" + username);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");

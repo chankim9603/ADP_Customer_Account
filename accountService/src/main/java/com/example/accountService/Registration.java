@@ -41,7 +41,7 @@ public class Registration {
     private void sendNewCustDataToCustomerAPI(String cust_json_string){
         try{
 
-            URL url = new URL("http://localhost:8080/api/customers/customers/insertCustomer");
+            URL url = new URL("http://localhost:8080/api/customers");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
 			conn.setRequestMethod("POST");
@@ -53,7 +53,6 @@ public class Registration {
 			OutputStream os = conn.getOutputStream();
 			os.write(cust_json_string.getBytes());
 			os.flush();
-
 			if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
 				throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
 			}
